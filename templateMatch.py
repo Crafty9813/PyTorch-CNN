@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('assets/desk.jpeg', 0) #0 is for grayscale
-template = cv2.imread('assets/plant.png', 0)
+img = cv2.resize(cv2.imread('assets/desk.jpeg', 0), (0, 0), fx = 2, fy = 2) #0 is for grayscale
+template = cv2.imread('assets/headphone.png', 0)
 
 h, w = template.shape
 
@@ -26,7 +26,5 @@ for method in methods:
 
     cv2.imshow('frame', img2)
 
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cv2.destroyAllWindows
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
