@@ -8,7 +8,7 @@ while True:
     width = int(cap.get(3))
     height = int(cap.get(4))
 
-    img = np.zeros(frame.shape, np.uint8)
+    img = np.ones(frame.shape, np.uint8)
 
     smaller_frame = cv2.resize(frame, (0, 0), fx = 0.5, fy = 0.5)
 
@@ -21,14 +21,14 @@ while True:
     font = cv2.FONT_HERSHEY_COMPLEX
     shapeThing = cv2.putText(shapeThing, 'Hello', (200, height - 30), font, 10, (0, 0, 0), 5, cv2.LINE_AA)
 
-    '''
+    
     img[:height//2, :width//2] = cv2.rotate(smaller_frame, cv2.ROTATE_180) #top left
     img[height//2:, :width//2] = smaller_frame #bottom left
     img[:height//2, width//2:] = cv2.rotate(smaller_frame, cv2.ROTATE_180) #top right
     img[height//2:, width//2:] = smaller_frame #bottom right
-    '''
+    
 
-    cv2.imshow('frame', shapeThing)
+    cv2.imshow('frame', img)
 
     if cv2.waitKey(1) == ord('q'):
         break
