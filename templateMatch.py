@@ -13,7 +13,8 @@ for method in methods:
     img2 = img.copy()
 
     result = cv2.matchTemplate(img2, template, method) #convolution (template image is "kernel"/slide)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result) #only 1 occurence though
+    
 
     if method in [cv2.TM_SQDIFF, cv2.TM_SQDIFF_NORMED]:
         top_left = min_loc #top left
